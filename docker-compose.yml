@@ -1,0 +1,26 @@
+services:
+  arithmetic-service:
+    image: arithmetic-service
+    build: 
+      context: ../arithmetic-service
+      dockerfile: Dockerfile
+    container_name: arithmetic-service
+    ports:
+      - "4000:3828"
+    environment: 
+      - PORT=3828
+    restart: "no"
+
+  azure-storage:
+    image: azure-storage
+    build: 
+      context: ../azure-storage-service
+      dockerfile: Dockerfile
+    container_name: azure-storage
+    ports:
+      - "4001:3828"
+    environment: 
+      - PORT=3828
+      
+    restart: "no"
+
